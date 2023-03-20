@@ -1,9 +1,6 @@
-import axios, { AxiosResponse } from "axios";
-import { useQuery, useMutation, useQueryClient } from "react-query";
 import List from "../List/List";
 import Loading from "./loading";
 import Error from "./error";
-import { useEffect } from "react";
 
 async function fetchData() {
   const url = new URL("https://tasty.p.rapidapi.com/recipes/list");
@@ -14,24 +11,17 @@ async function fetchData() {
   const responce = await fetch(url.href, {
     method: "Get",
     headers: {
-      "X-RapidAPI-Key": "d0ca022650mshf6f29a711c5a66dp113cb4jsnb35e2dd638b5",
+      "X-RapidAPI-Key": "7320a25616mshc031aecbb8524e1p108be3jsn12c8d64b59d5",
       "X-RapidAPI-Host": "tasty.p.rapidapi.com",
     },
   });
-  console.log(responce);
   if (responce.ok) return await responce.json();
-  if (!responce.ok) return Error();
+  if (!responce.ok) return Error;
 }
 
-export default function GetData(): JSX.Element {
-  useEffect(() => {}, []);
-  const query = useQueryClient();
-  const { isError, isSuccess, isLoading, data } = useQuery({
-    queryKey: "allRecipe",
-    queryFn: fetchData,
-  });
-  if (isError) return <Error />;
-  if (isLoading) return <Loading />;
+export default async function GetData(): Promise<JSX.Element> {
+  const data = await fetchData();
+  console.log(data);
   return (
     <div>
       <List reciepe={data?.results} />

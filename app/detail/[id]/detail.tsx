@@ -6,6 +6,7 @@ import { useQuery, useQueryClient } from "react-query";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Metadata } from "next";
+import ReactPlayer from "react-player/lazy";
 import Image from "next/image";
 import "./detail.css";
 let isError: boolean;
@@ -20,7 +21,7 @@ async function fetchData(query: any) {
   const responce = await fetch(url.href, {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "d0ca022650mshf6f29a711c5a66dp113cb4jsnb35e2dd638b5",
+      "X-RapidAPI-Key": "7320a25616mshc031aecbb8524e1p108be3jsn12c8d64b59d5",
       "X-RapidAPI-Host": "tasty.p.rapidapi.com",
     },
   });
@@ -88,16 +89,14 @@ export default function Detail({ id }: any): JSX.Element {
                 <Button
                   style={{
                     background:
-                      selectedBtn == "Instruction"
-                        ? "#fff"
-                        : "rgb(143, 135, 250",
-                    color: selectedBtn == "Instruction" ? "black" : "#fff",
+                      selectedBtn == "video" ? "#fff" : "rgb(143, 135, 250",
+                    color: selectedBtn == "video" ? "black" : "#fff",
                   }}
                   className="btn"
                   variant="primary m-2 overflow-hidden"
-                  onClick={() => setSelectedBtn("Instruction")}
+                  onClick={() => setSelectedBtn("video")}
                 >
-                  Instruction
+                  Video
                 </Button>
               </div>
               <Card.Body style={{ width: "100%", height: "100%" }}>
@@ -110,10 +109,37 @@ export default function Detail({ id }: any): JSX.Element {
                       </div>
                     );
                   })}
-                {selectedBtn == "Neutreints" && <div>Come Back Tommorow</div>}
+                {selectedBtn == "Neutreints" && (
+                  <div>
+                    <div className="nutrition fs-3 w-100">nutrition</div>
+                    <div className="w-100 d-flex justify-content-center flex-column">
+                      {Object.keys(data?.nutrition)
+                        .sort()
+                        .map((key: string, i: number) => {
+                          return (
+                            <>
+                              <div
+                                key={i}
+                              >{`${key} ${data?.nutrition[key]}`}</div>
+                            </>
+                          );
+                        })}
+                    </div>
+                  </div>
+                )}
 
-                {selectedBtn == "Instruction" && <div>I Said Tommorow</div>}
-                <Button variant="primary">Go somewhere</Button>
+                {selectedBtn == "video" && (
+                  <div>
+                    <div>
+                      <ReactPlayer
+                        url={data?.original_video_url}
+                        width="640"
+                        controls={true}
+                        pip={true}
+                      />
+                    </div>
+                  </div>
+                )}
               </Card.Body>
             </Card>
           </div>

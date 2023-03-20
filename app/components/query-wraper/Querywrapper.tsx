@@ -1,21 +1,14 @@
-"use client";
-import React from "react";
-import { QueryClient, QueryClientProvider } from "react-query";
+// "use client";
+import React, { Suspense } from "react";
 import GetData from "../getData/getData";
-import { ReactQueryDevtools } from "react-query/devtools";
-import Container from "react-bootstrap/Container";
 import "./queryWrapper.css";
-export default function Querywrapper() {
-  const queryClient = new QueryClient();
-
+import Loading from "../getData/loading";
+export default function Querywrapper(): JSX.Element {
   return (
     <>
-      <Container className="queryWrapper">
-        <QueryClientProvider client={queryClient}>
-          <GetData />
-          <ReactQueryDevtools initialIsOpen={false} />
-        </QueryClientProvider>
-      </Container>
+      <Suspense fallback={<Loading />}>
+        <GetData />
+      </Suspense>
     </>
   );
 }

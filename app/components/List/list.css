@@ -2,3 +2,13 @@
   width: auto;
   overflow: hidden;
 }
+
+.cards {
+  width: 20rem;
+  background: rgb(244, 222, 222);
+}
+
+.wrapper {
+  width: 90%;
+  margin: 2% auto;
+}
