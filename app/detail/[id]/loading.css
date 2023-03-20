@@ -1,7 +1,3 @@
-.loading {
-  overflow: hidden;
-}
-
 .skeleton {
   animation: skeleton-loading 1s linear infinite alternate;
 }
@@ -15,19 +11,43 @@
   }
 }
 
-.skeleton-all-recipe {
+.skeleton-name {
   width: 200px;
   height: 20px;
   margin-bottom: 0.5rem;
   border-radius: 0.25rem;
+  margin-left: 0;
+  position: relative;
+  left: -45%;
 }
 
 .skeleton-card {
   width: 20rem;
-  height: 15rem;
+  height: 20rem;
   border-radius: 10px;
 }
 
 .skeleton-footer {
   width: 30%;
+}
+
+.skeleton-image {
+  width: 20rem;
+  height: 25rem;
+  border-radius: 10px;
+}
+
+.skeleton-description {
+  width: 100%;
+  margin: 10px;
+  height: 20px;
+}
+.skeleton-description-last {
+  width: 20%;
+}
+
+.skeleton-btn {
+  width: 100px;
+  height: 20px;
+  border: none;
 }

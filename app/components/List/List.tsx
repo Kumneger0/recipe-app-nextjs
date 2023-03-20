@@ -29,16 +29,16 @@ export default function List({ reciepe }: Recipes) {
                     className="thumbnail w-100 w-100"
                   />
                   <div>
-                    <span className="w-100 overflow-hidden text-black">
+                    <span className="w-100 mt-1  bg-color overflow-hidden text-black">
                       {reciepe.name}
                     </span>
-                    <div className="d-flex text-black">
-                      <span className="m-1">Cook time</span>{" "}
-                      <span className="m-1">
-                        {reciepe.total_time_tier.display_tier}
+                    <div className="d-flex bg-color mt-1 text-black">
+                      <span className="">Cook time </span>{" "}
+                      <span className="ml-1 ">
+                        -{reciepe.total_time_tier.display_tier}
                       </span>
                     </div>
-                    <div className="rating text-black">
+                    <div className=" bg-color rating text-black">
                       {" "}
                       <span>rate</span> {reciepe.user_ratings.score}/1
                     </div>

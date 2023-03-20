@@ -5,6 +5,7 @@ import Error from "@/app/components/getData/error";
 import { useQuery, useQueryClient } from "react-query";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import Loading from "./loading";
 import { Metadata } from "next";
 import ReactPlayer from "react-player/lazy";
 import Image from "next/image";
@@ -37,7 +38,7 @@ export default function Detail({ id }: any): JSX.Element {
     queryFn: (id) => fetchData(id),
   }));
   if (isError) return <Error />;
-  if (isLoading) return <span className="mt-5">please wait</span>;
+  if (isLoading) return <Loading />;
   console.log(data);
   return (
     <>
