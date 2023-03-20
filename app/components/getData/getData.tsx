@@ -9,7 +9,6 @@ async function fetchData() {
   searchParams.append("size", "12");
   searchParams.append("tags", "under_30_minutes");
   const responce = await fetch(url.href, {
-    cache: "no-cache",
     method: "Get",
     headers: {
       "X-RapidAPI-Key": "7320a25616mshc031aecbb8524e1p108be3jsn12c8d64b59d5",
