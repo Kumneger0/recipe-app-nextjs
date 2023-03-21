@@ -19,16 +19,13 @@ let data: any;
 let isLoading: boolean;
 async function fetchData(query: any) {
   const id = query.queryKey[0];
-  const url = new URL("https://tasty.p.rapidapi.com/recipes/get-more-info");
-  const searchParams = url.searchParams;
-  searchParams.append("id", id);
-  const responce = await fetch(url.href, {
+  const responce = await fetch(`/api/detail/${id}`, {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "7320a25616mshc031aecbb8524e1p108be3jsn12c8d64b59d5",
-      "X-RapidAPI-Host": "tasty.p.rapidapi.com",
+      "Content-Type": "application/json",
     },
   });
+  console.log(responce);
   if (responce.ok) return await responce.json();
   throw Error();
 }
