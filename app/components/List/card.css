@@ -1,0 +1,5 @@
+.description-after::after {
+  content: "...";
+  background-color: red;
+  z-index: 1;
+}

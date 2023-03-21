@@ -10,7 +10,7 @@ export default function Header() {
     <>
       <Navbar className="navBar position-fixed w-100" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="/">logo</Navbar.Brand>
+          <Navbar.Brand href="/">Tasty</Navbar.Brand>
         </Container>
       </Navbar>
     </>

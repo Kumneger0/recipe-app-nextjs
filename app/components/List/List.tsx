@@ -1,25 +1,40 @@
+import "server-only";
 import React from "react";
 import Link from "next/link";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./list.css";
 import { Recipes } from "@/app/types";
 import Image from "next/image";
+import MediaCard from "./card";
 export default function List({ reciepe }: Recipes) {
   return (
-    <div className="wrapper mt4">
-      <div className="mt-5">
+    <div className="wrapper">
+      <div>
         <h3 className="all-reciepe">All recipes</h3>
-        <div className="d-flex flex-wrap w-100 justify-content-center">
+        <div className="flex-wrapper">
           {reciepe.map((reciepe: any) => {
             return (
-              <div
-                key={reciepe.id}
-                className="m-4 p-2 overflow-hidden w-25 cards"
-              >
-                <Link
-                  className="text-decoration-none d-inline"
-                  href={`/detail/${reciepe.id}`}
-                >
+              <div key={reciepe.id} className="cards">
+                <MediaCard
+                  data={{
+                    img_url: reciepe.thumbnail_url,
+                    item_id: reciepe.id,
+                    item_name: reciepe.name,
+                    cook_time: reciepe.total_time_tier.display_tier,
+                    rate: reciepe.user_ratings.score,
+                    description: reciepe.description,
+                  }}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <></>
+    </div>
+  );
+}
+
+/* <Link className="link" href={`/detail/${reciepe.id}`}>
                   <Image
                     width={600}
                     height={600}
@@ -29,27 +44,17 @@ export default function List({ reciepe }: Recipes) {
                     className="thumbnail w-100 w-100"
                   />
                   <div>
-                    <span className="w-100 mt-1  bg-color overflow-hidden text-black">
-                      {reciepe.name}
-                    </span>
-                    <div className="d-flex bg-color mt-1 text-black">
+                    <span className="recipe-name">{reciepe.name}</span>
+                    <div className="cook time">
                       <span className="">Cook time </span>{" "}
                       <span className="ml-1 ">
                         -{reciepe.total_time_tier.display_tier}
                       </span>
                     </div>
-                    <div className=" bg-color rating text-black">
+                    <div className=" bg-color rating">
                       {" "}
                       <span>rate</span> {reciepe.user_ratings.score}/1
                     </div>
                     <div></div>
                   </div>
-                </Link>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
-}
+                </Link>*/

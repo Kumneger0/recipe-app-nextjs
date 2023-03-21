@@ -7,8 +7,11 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Loading from "./loading";
 import { Metadata } from "next";
+import Link from "next/link";
 import ReactPlayer from "react-player/lazy";
 import Image from "next/image";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import OutlinedCard from "./card";
 import "./detail.css";
 let isError: boolean;
 let isSuccess: Boolean;
@@ -44,20 +47,38 @@ export default function Detail({ id }: any): JSX.Element {
     <>
       <div className="container w-100 mt-4">
         <div className="row w-100 d-flex justify-content-center ">
+          <Link className="backToTheList" href={"/"}>
+            <ArrowBackIosNewIcon /> Back To The List
+          </Link>
           <div className="slug fs-2">{data?.name}</div>
           <div className="description">{data?.description}</div>
         </div>
         <div className="row m-3 d-flex ">
-          <div className="col col-md-3 col-sm-8 ">
+          <div className="col img col-md-3 col-sm-8 ">
             <Image
               src={data?.thumbnail_url}
               width="400"
               height="600"
               alt="reciepe image"
+              className="image"
             />
           </div>
           <div className="col d-flex col-sm-12 col-md-9 justify-content-center">
-            <Card style={{ width: "100%", height: "600px" }}>
+            <OutlinedCard
+              data={{
+                instruction: data.instructions,
+                nutrition: data.nutrition,
+                video: data.original_video_url,
+              }}
+            />
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+/* <Card style={{ width: "100%", height: "600px" }}>
               <div className="btn-header d-flex w-100 justify-content-around">
                 <Button
                   style={{
@@ -142,10 +163,4 @@ export default function Detail({ id }: any): JSX.Element {
                   </div>
                 )}
               </Card.Body>
-            </Card>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-}
+            </Card>*/

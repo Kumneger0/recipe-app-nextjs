@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { Suspense } from "react";
 import GetData from "../getData/getData";
 import "./queryWrapper.css";
 import Loading from "../getData/loading";

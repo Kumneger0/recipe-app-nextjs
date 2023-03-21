@@ -3,14 +3,23 @@
   overflow: hidden;
 }
 
+.flex-wrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+}
+
 .cards {
-  width: 20rem;
+  width: 15rem;
   border: 1px solid hsl(0, 39%, 94%);
+  margin: 10px;
 }
 
 .wrapper {
   width: 90%;
-  margin: 2% auto;
+  margin: 3.5rem auto;
 }
 .bg-color {
   margin: 10px 0;
