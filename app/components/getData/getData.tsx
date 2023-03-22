@@ -6,7 +6,7 @@ async function fetchData() {
   const url = new URL("https://tasty.p.rapidapi.com/recipes/list");
   const searchParams = url.searchParams;
   searchParams.append("from", "0");
-  searchParams.append("size", "12");
+  searchParams.append("size", "28");
   searchParams.append("tags", "under_30_minutes");
   const responce = await fetch(url.href, {
     method: "Get",

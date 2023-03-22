@@ -6,6 +6,7 @@ import Modal from "@mui/material/Modal";
 import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
 import { debounce } from "debouncing";
+import styles from "./modal.module.css";
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
@@ -23,8 +24,12 @@ export default function BasicModal() {
   const [searchData, setSearchData] = React.useState([]);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
-  const handleChange = debounce(async (e) => {
+  //@ts-ignore
+  const handleChange: any = debounce(async (e: any) => {
+    if (!e.target.value || e.target.value == "") {
+      setSearchData([]);
+      return;
+    }
     const res = await fetch(`/api/search/${e.target.value}`);
     if (!res.ok) return;
     const data = await res.json();
@@ -41,8 +46,12 @@ export default function BasicModal() {
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        className={styles.modal}
       >
         <Box sx={style}>
+          <Button className={styles.clrbtn} onClick={() => setSearchData([])}>
+            cls
+          </Button>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             <TextField
               style={{ width: "100%" }}
@@ -54,7 +63,7 @@ export default function BasicModal() {
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             {searchData.length ? (
-              searchData.map((name, i) => {
+              searchData.map((name: any, i: number) => {
                 return <div key={i}>{name.display}</div>;
               })
             ) : (

@@ -12,7 +12,9 @@ export default function MediaCard(props: any) {
   const { data } = props;
   return (
     <Card sx={{ maxWidth: 245 }}>
-      <CardMedia component="img" image={data.img_url} />
+      <Link href={`/detail/${data.item_id}`}>
+        <CardMedia component="img" image={data.img_url} />
+      </Link>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {data.item_name}
@@ -35,10 +37,10 @@ export default function MediaCard(props: any) {
       <CardActions>
         <Button size="small">
           <Link
-            style={{ textDecoration: "none" }}
+            style={{ textDecoration: "none", textTransform: "capitalize" }}
             href={`/detail/${data.item_id}`}
           >
-            Read More
+            Detail
           </Link>
         </Button>
       </CardActions>

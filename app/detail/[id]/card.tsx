@@ -17,14 +17,43 @@ const bull = (
 );
 
 export default function OutlinedCard(props: any) {
-  const [selectedBtn, setSelectedBtn] = React.useState<string>("Video");
+  const [selectedBtn, setSelectedBtn] = React.useState<string>("instructions");
+  const stickeItemRef = React.useRef();
+  const stickeItemCardRef = React.useRef();
+  React.useEffect(() => {
+    window.addEventListener("scroll", () => {
+      /* @ts-ignore*/
+      const domRect = stickeItemCardRef?.current.getBoundingClientRect();
+      console.log(domRect);
+      /* @ts-ignore*/
+      if (innerWidth > 990) return;
+      if (domRect.top > 50) {
+        // @ts-ignore
+        stickeItemRef.current.style.position = "static";
+        return;
+      }
+      //@ts-ignore
+      stickeItemRef.current.style.position = "fixed";
+      //@ts-ignore
+      stickeItemRef.current.style.top = "47px";
+    });
+  }, []);
   return (
-    <Box style={{ width: "100%", height: "500px" }} sx={{ minWidth: 275 }}>
-      <Card variant="outlined">
+    <Box
+      style={{ width: "100%", height: innerWidth <= 980 ? "auto" : "500px" }}
+      sx={{ minWidth: 275 }}
+    >
+      {/* @ts-ignore*/}
+      <Card ref={stickeItemCardRef} className="cardWrapper" variant="outlined">
         <React.Fragment>
-          <CardContent>
+          {/* @ts-ignore*/}
+          <div ref={stickeItemRef} className="detail-control">
             <Typography
-              className="detail-control"
+              style={{
+                display: "flex",
+                width: "100%",
+                justifyContent: "space-around",
+              }}
               sx={{ fontSize: 14 }}
               color="text.secondary"
               gutterBottom
@@ -48,6 +77,8 @@ export default function OutlinedCard(props: any) {
                 Video
               </Button>
             </Typography>
+          </div>
+          <CardContent>
             <Typography variant="h5" component="div">
               {selectedBtn == "instructions" &&
                 props.data.instruction.map((ins: any, i: number) => {

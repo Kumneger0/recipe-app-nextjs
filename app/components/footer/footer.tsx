@@ -5,7 +5,7 @@ export default function Footer(): JSX.Element {
     <div className={styles.container}>
       <div>
         <span>&copy;</span>
-        <span>Recipe 2023</span>
+        <span>Tasty 2023</span>
       </div>
     </div>
   );

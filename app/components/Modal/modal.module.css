@@ -1,0 +1,12 @@
+.modal {
+  max-height: 10rem;
+  overflow: auto;
+  margin: 10%;
+  padding: 20%;
+}
+
+.clrbtn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}

@@ -1,5 +1,4 @@
 .detail-control {
-  display: flex;
+  background-color: #f2e8e8;
   width: 100%;
-  justify-content: space-around;
 }

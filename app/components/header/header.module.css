@@ -1,0 +1,20 @@
+.header {
+  width: 100%;
+  background-color: #f3dcdc;
+  position: fixed;
+  height: 3rem;
+}
+
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.navLogo {
+  text-decoration: none;
+  color: black;
+}
