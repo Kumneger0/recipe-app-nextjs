@@ -83,8 +83,8 @@ export default function OutlinedCard(props: any) {
               {selectedBtn == "instructions" &&
                 props.data.instruction.map((ins: any, i: number) => {
                   return (
-                    <div className="m-3" key={ins.id}>
-                      <span className="fs-5">{`step ${i + 1}`}</span>
+                    <div key={ins.id}>
+                      <span>{`step ${i + 1}`}</span>
                       <div>{ins.display_text}</div>
                     </div>
                   );

@@ -9,19 +9,43 @@ import { debounce } from "debouncing";
 import styles from "./modal.module.css";
 const style = {
   position: "absolute" as "absolute",
-  top: "50%",
+  top: "40%",
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 400,
   bgcolor: "background.paper",
-  border: "2px solid #000",
+  border: "1px solid #000",
   boxShadow: 24,
   p: 4,
+  height: 300,
+  overFlow: "hidden",
 };
 
 export default function BasicModal() {
   const [open, setOpen] = React.useState(false);
-  const [searchData, setSearchData] = React.useState([]);
+  const [searchData, setSearchData] = React.useState([
+    { display: "placeholder" },
+    ,
+    { display: "placeholder" },
+    ,
+    { display: "placeholder" },
+    ,
+    { display: "placeholder" },
+    { display: "placeholder" },
+    ,
+    { display: "placeholder" },
+    ,
+    { display: "placeholder" },
+    ,
+    { display: "placeholder" },
+    { display: "placeholder" },
+    ,
+    { display: "placeholder" },
+    ,
+    { display: "placeholder" },
+    ,
+    { display: "placeholder" },
+  ]);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   //@ts-ignore
@@ -62,13 +86,15 @@ export default function BasicModal() {
             />
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            {searchData.length ? (
-              searchData.map((name: any, i: number) => {
-                return <div key={i}>{name.display}</div>;
-              })
-            ) : (
-              <div>Search recipe you want</div>
-            )}
+            <div className={styles.searchName}>
+              {searchData.length ? (
+                searchData.map((name: any, i: number) => {
+                  return <div key={i}>{name.display}</div>;
+                })
+              ) : (
+                <div>Search recipe you want</div>
+              )}
+            </div>
           </Typography>
         </Box>
       </Modal>

@@ -3,6 +3,7 @@
   overflow: auto;
   margin: 10%;
   padding: 20%;
+  overflow: hidden;
 }
 
 .clrbtn {
