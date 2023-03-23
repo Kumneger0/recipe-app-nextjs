@@ -60,8 +60,8 @@ export default function BasicModal() {
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             <div className={styles.searchName}>
-              {searchData.length ? (
-                searchData.map((name: any, i: number) => {
+              {searchData?.length ? (
+                searchData?.map((name: any, i: number) => {
                   return <div key={i}>{name.display}</div>;
                 })
               ) : (

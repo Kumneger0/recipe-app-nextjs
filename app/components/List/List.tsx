@@ -1,9 +1,7 @@
 import "server-only";
 import React from "react";
-import Link from "next/link";
 import "./list.css";
 import { Recipes } from "@/app/types";
-import Image from "next/image";
 import MediaCard from "./card";
 export default function List({ reciepe }: Recipes) {
   return (
