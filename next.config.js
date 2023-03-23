@@ -13,7 +13,7 @@ const nextConfig = {
     ],
   },
   env: {
-    API_KEY: "2a3f82251amsh65a256bb11e9a6cp1ca354jsn2c3129658aad",
+    API_KEY: "Replace this with your api key",
   },
 };
 
