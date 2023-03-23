@@ -2,8 +2,7 @@ import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
   const search = new URL(request.url).searchParams;
-  console.log(search.get("id"));
-  const id = request.url.split("/").pop();
+  const id: string = request.url.split("/").pop()!;
   console.log(id);
   const url = new URL("https://tasty.p.rapidapi.com/recipes/get-more-info");
   url.searchParams.append("id", id);
@@ -14,6 +13,9 @@ export async function GET(request: Request) {
       "X-RapidAPI-Host": "tasty.p.rapidapi.com",
     },
   });
+
+  if (!responce.ok) return NextResponse.json({ Error: "There was an Error" });
   const data = await responce.json();
+  console.log(responce.json);
   return NextResponse.json(data);
 }

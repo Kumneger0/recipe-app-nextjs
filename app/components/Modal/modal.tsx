@@ -6,6 +6,7 @@ import Modal from "@mui/material/Modal";
 import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
 import { debounce } from "debouncing";
+import ClearIcon from "@mui/icons-material/Clear";
 import styles from "./modal.module.css";
 const style = {
   position: "absolute" as "absolute",
@@ -23,29 +24,7 @@ const style = {
 
 export default function BasicModal() {
   const [open, setOpen] = React.useState(false);
-  const [searchData, setSearchData] = React.useState([
-    { display: "placeholder" },
-    ,
-    { display: "placeholder" },
-    ,
-    { display: "placeholder" },
-    ,
-    { display: "placeholder" },
-    { display: "placeholder" },
-    ,
-    { display: "placeholder" },
-    ,
-    { display: "placeholder" },
-    ,
-    { display: "placeholder" },
-    { display: "placeholder" },
-    ,
-    { display: "placeholder" },
-    ,
-    { display: "placeholder" },
-    ,
-    { display: "placeholder" },
-  ]);
+  const [searchData, setSearchData] = React.useState([]);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   //@ts-ignore
@@ -73,9 +52,6 @@ export default function BasicModal() {
         className={styles.modal}
       >
         <Box sx={style}>
-          <Button className={styles.clrbtn} onClick={() => setSearchData([])}>
-            cls
-          </Button>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             <TextField
               style={{ width: "100%" }}

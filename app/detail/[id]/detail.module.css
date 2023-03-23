@@ -48,3 +48,9 @@
     margin: 10px;
   }
 }
+
+.container {
+  width: 90%;
+  height: 100%;
+  margin: 5% auto;
+}

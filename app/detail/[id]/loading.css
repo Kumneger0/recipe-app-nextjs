@@ -2,6 +2,17 @@
   animation: skeleton-loading 1s linear infinite alternate;
 }
 
+.detailSeletonContainer {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.loadingFlexWrapper {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+
 @keyframes skeleton-loading {
   0% {
     background-color: hsl(200, 20%, 80%);
@@ -20,21 +31,22 @@
   position: relative;
   left: -45%;
 }
-
-.skeleton-card {
-  width: 20rem;
-  height: 20rem;
-  border-radius: 10px;
-}
-
 .skeleton-footer {
   width: 30%;
+  position: absolute;
+  bottom: 0;
+}
+
+.skeleton-card {
+  width: 65%;
+  margin-bottom: 1.3rem;
 }
 
 .skeleton-image {
-  width: 20rem;
+  width: 25%;
   height: 25rem;
   border-radius: 10px;
+  margin-bottom: 5%;
 }
 
 .skeleton-description {

@@ -11,7 +11,7 @@ async function fetchData() {
   const responce = await fetch(url.href, {
     method: "Get",
     headers: {
-      "X-RapidAPI-Key": "7320a25616mshc031aecbb8524e1p108be3jsn12c8d64b59d5",
+      "X-RapidAPI-Key": process.env.API_KEY!,
       "X-RapidAPI-Host": "tasty.p.rapidapi.com",
     },
   });

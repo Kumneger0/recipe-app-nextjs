@@ -1,8 +1,8 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Tasty food recipe",
-  description: "Get instruction detail for delicios recipes",
+  title: "Tasty The Place of delicious Recipes",
+  description: "Get Instruction Detail For delicious Recipes",
 };
 
 export default function RootLayout({

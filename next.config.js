@@ -2,6 +2,7 @@
 const nextConfig = {
   experimental: {
     appDir: true,
+    swcMinify: true,
   },
   images: {
     remotePatterns: [
@@ -12,7 +13,7 @@ const nextConfig = {
     ],
   },
   env: {
-    API_KEY: "7320a25616mshc031aecbb8524e1p108be3jsn12c8d64b59d5",
+    API_KEY: "2a3f82251amsh65a256bb11e9a6cp1ca354jsn2c3129658aad",
   },
 };
 

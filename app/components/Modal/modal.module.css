@@ -8,6 +8,6 @@
 
 .clrbtn {
   position: fixed;
-  top: 10px;
-  right: 10px;
+  top: -10px;
+  right: -20px;
 }

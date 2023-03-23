@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-// import "bootstrap/dist/css/bootstrap.min.css";
 import Error from "@/app/components/getData/error";
 import { useQuery, useQueryClient } from "react-query";
 import Loading from "./loading";

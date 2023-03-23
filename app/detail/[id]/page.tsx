@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Header from "@/app/components/header/header";
-import Container from "react-bootstrap/Container";
 import Detail from "./detail";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
@@ -20,12 +19,12 @@ export default function page({ params }: any) {
       <div>
         <Header />
       </div>
-      <Container className="mt-5">
+      <div className="mt-5">
         <QueryClientProvider client={queryClient}>
           <Detail id={id} />
           <ReactQueryDevtools />
         </QueryClientProvider>
-      </Container>
+      </div>
       <Footer />
     </>
   );
