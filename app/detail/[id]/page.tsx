@@ -6,10 +6,7 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { Metadata } from "next";
 import Footer from "@/app/components/footer/footer";
-export const metadata: Metadata = {
-  title: "dynamic rote",
-  description: "no decription",
-};
+
 export default function page({ params }: any) {
   const { id } = params;
   const queryClient = new QueryClient();
