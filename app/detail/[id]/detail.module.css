@@ -54,3 +54,9 @@
   height: 100%;
   margin: 5% auto;
 }
+
+@media (width <= 780px) {
+  .container {
+    margin: 15% auto;
+  }
+}

@@ -3,6 +3,7 @@
   background-color: #f3dcdc;
   position: fixed;
   height: 3rem;
+  z-index: 3;
 }
 
 .container {

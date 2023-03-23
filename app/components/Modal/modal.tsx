@@ -6,20 +6,17 @@ import Modal from "@mui/material/Modal";
 import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
 import { debounce } from "debouncing";
-import ClearIcon from "@mui/icons-material/Clear";
 import styles from "./modal.module.css";
 const style = {
   position: "absolute" as "absolute",
-  top: "40%",
+  top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  width: 300,
   bgcolor: "background.paper",
   border: "1px solid #000",
   boxShadow: 24,
   p: 4,
-  height: 300,
-  overFlow: "hidden",
 };
 
 export default function BasicModal() {

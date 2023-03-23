@@ -1,13 +1,6 @@
-.modal {
-  max-height: 10rem;
-  overflow: auto;
-  margin: 10%;
-  padding: 20%;
-  overflow: hidden;
-}
-
-.clrbtn {
-  position: fixed;
-  top: -10px;
-  right: -20px;
+@media (width <= 780px) {
+  .modal {
+    width: 90%;
+    margin: auto;
+  }
 }

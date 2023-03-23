@@ -18,36 +18,17 @@ const bull = (
 
 export default function OutlinedCard(props: any) {
   const [selectedBtn, setSelectedBtn] = React.useState<string>("instructions");
-  const stickeItemRef = React.useRef();
-  const stickeItemCardRef = React.useRef();
-  React.useEffect(() => {
-    window.addEventListener("scroll", () => {
-      /* @ts-ignore*/
-      const domRect = stickeItemCardRef?.current.getBoundingClientRect();
-      console.log(domRect);
-      /* @ts-ignore*/
-      if (innerWidth > 990) return;
-      if (domRect.top > 50) {
-        // @ts-ignore
-        stickeItemRef.current.style.position = "static";
-        return;
-      }
-      //@ts-ignore
-      stickeItemRef.current.style.position = "fixed";
-      //@ts-ignore
-      stickeItemRef.current.style.top = "47px";
-    });
-  }, []);
+
   return (
     <Box
       style={{ width: "100%", height: innerWidth <= 980 ? "auto" : "500px" }}
       sx={{ minWidth: 275 }}
     >
       {/* @ts-ignore*/}
-      <Card ref={stickeItemCardRef} className="cardWrapper" variant="outlined">
+      <Card className="cardWrapper" variant="outlined">
         <React.Fragment>
           {/* @ts-ignore*/}
-          <div ref={stickeItemRef} className="detail-control">
+          <div className="detail-control">
             <Typography
               style={{
                 display: "flex",
@@ -61,18 +42,31 @@ export default function OutlinedCard(props: any) {
               <Button
                 onClick={() => setSelectedBtn("instructions")}
                 variant="outlined"
+                style={{
+                  background:
+                    selectedBtn == "instructions" ? "#349beb" : "#fff",
+                  color: selectedBtn == "instructions" ? "#fff" : "#000",
+                }}
               >
                 Instructions
               </Button>
               <Button
                 onClick={() => setSelectedBtn("Nutrition")}
                 variant="outlined"
+                style={{
+                  background: selectedBtn == "Nutrition" ? "#349beb" : "#fff",
+                  color: selectedBtn == "Nutrition" ? "#fff" : "#000",
+                }}
               >
                 Nutrition
               </Button>
               <Button
                 onClick={() => setSelectedBtn("Video")}
                 variant="outlined"
+                style={{
+                  background: selectedBtn == "Video" ? "#349beb" : "#fff",
+                  color: selectedBtn == "Video" ? "#fff" : "#000",
+                }}
               >
                 Video
               </Button>
@@ -80,15 +74,18 @@ export default function OutlinedCard(props: any) {
           </div>
           <CardContent>
             <Typography variant="h5" component="div">
-              {selectedBtn == "instructions" &&
-                props.data.instruction.map((ins: any, i: number) => {
-                  return (
-                    <div key={ins.id}>
-                      <span>{`step ${i + 1}`}</span>
-                      <div>{ins.display_text}</div>
-                    </div>
-                  );
-                })}
+              {selectedBtn == "instructions" && (
+                <>
+                  {props.data.instruction.map((ins: any, i: number) => {
+                    return (
+                      <div key={ins.id}>
+                        <span>{`step ${i + 1}`}</span>
+                        <div>{ins.display_text}</div>
+                      </div>
+                    );
+                  })}
+                </>
+              )}
             </Typography>
             <Typography sx={{ mb: 1.5 }} component="div">
               {selectedBtn == "Nutrition" && (

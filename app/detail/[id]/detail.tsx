@@ -41,7 +41,9 @@ export default function Detail({ id }: any): JSX.Element {
           <Link className={styles.backToTheList} href={"/"}>
             <ArrowBackIosNewIcon /> Back To The List
           </Link>
-          <div className={styles.name}>{data?.name}</div>
+          <h3 style={{ fontStyle: "italic" }} className={styles.name}>
+            {data?.name}
+          </h3>
           <div className={styles.description}>{data?.description}</div>
         </div>
         <div className={styles.flex_wrapper}>
