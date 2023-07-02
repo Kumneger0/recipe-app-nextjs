@@ -11,12 +11,31 @@ import "./card.css";
 export default function MediaCard(props: any) {
   const { data } = props;
   return (
-    <Card sx={{ maxWidth: 245 }}>
+    <Card sx={{ maxWidth: 350, maxHeight: 450 }}>
       <Link href={`/detail/${data.item_id}`}>
-        <CardMedia component="img" image={data.img_url} />
+        <CardMedia
+          style={{
+            width: "100%",
+            aspectRatio: "3/3",
+            objectFit: "cover",
+            objectPosition: "center",
+            display: "hidden",
+          }}
+          component="img"
+          loading="lazy"
+          image={data.img_url}
+        />
       </Link>
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography
+          sx={{
+            height: "3.5rem",
+            overflow: "hidden",
+          }}
+          gutterBottom
+          variant="h5"
+          component="div"
+        >
           {data.item_name}
         </Typography>
         <Typography

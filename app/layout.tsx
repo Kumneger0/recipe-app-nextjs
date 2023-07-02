@@ -2,8 +2,6 @@ import "./globals.css";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 
-
-
 export const metadata = {
   title: "Cook Delicious Meals Easily and Quickly With the Tasty ",
   description:
@@ -17,13 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <section>
-<Header />
-</section>
-      <body>{children}</body>
-<footer>
-<Footer />
-</footer>
+      <body className="bg-black">
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

@@ -49,6 +49,7 @@ export default function Detail({ id }: any): JSX.Element {
         <div className={styles.flex_wrapper}>
           <div className={`${styles.flex_item}, ${styles.item1}`}>
             <Image
+              loading="lazy"
               src={data?.thumbnail_url}
               width="400"
               height="600"

@@ -7,7 +7,10 @@ export default function Header() {
   return (
     <>
       <header className={styles.header}>
-        <div className={styles.container}>
+        <div
+          style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 1rem" }}
+          className={styles.container}
+        >
           <a className={styles.navLogo} href="/">
             Tasty
           </a>

@@ -1,9 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-    swcMinify: true,
-  },
   images: {
     remotePatterns: [
       {
@@ -13,7 +9,7 @@ const nextConfig = {
     ],
   },
   env: {
-    API_KEY: "Replace this with your api key",
+    API_KEY: "d0ca022650mshf6f29a711c5a66dp113cb4jsnb35e2dd638b5",
   },
 };
 
